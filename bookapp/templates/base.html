@@ -17,7 +17,7 @@
     header,
     footer {
         padding: 8px;
-        background-color: #e97655;
+        background-color: #242c51;
         color: #eee;
     }
     </style>
@@ -25,9 +25,14 @@
 
 <body>
     <header>
-        <h3>Contact list</h3>
+        <h2>Contact list</h2>
     </header>
     <section>
+
+    <div class="book">
+        <img src="./templates/images/book.png" alt="">
+    </div>
+                        
 
     {% block content %}
     {% endblock %}
@@ -37,7 +42,7 @@
     <footer>
         <h5>
         Dzisiejsza data:
-        <!-- zad. 5: tutaj wstaw aktualną datę -->
+        {{now}}
         </h5>
     </footer>
 </body>
