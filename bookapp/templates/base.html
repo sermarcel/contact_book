@@ -28,11 +28,12 @@
         <h2>Contact list</h2>
     </header>
     <section>
-
     <div class="book">
-        <img src="./templates/images/book.png" alt="">
+     {% load static %}   
+<img src="{% static "/book.png" %}" alt="" height =100 />
     </div>
                         
+
 
     {% block content %}
     {% endblock %}
