@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+<p> ID:    {{ contact.id }} </p>
+<p> Name:    {{ contact.name }} </p>
+<p> Surname: {{ contact.surname }} </p>
+<p> Mail:    {{ contact.mail }} </p>
+<p> Phone:   {{ contact.phone_number }} </p>
+
+
+<input type="submit" name="addContact" value="Usuń">
+</form>
+
+{% endblock %}

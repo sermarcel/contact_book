@@ -20,7 +20,16 @@
         background-color: #242c51;
         color: #eee;
     }
+    .book{
+        float: left
+    }
     </style>
+    
+    <div class="book">
+     {% load static %}   
+<img src="{% static "/book.png" %}" alt="" height ='50' width="50" />
+    </div>
+                        
 </head>
 
 <body>
@@ -28,11 +37,6 @@
         <h2>Contact list</h2>
     </header>
     <section>
-    <div class="book">
-     {% load static %}   
-<img src="{% static "/book.png" %}" alt="" height =100 />
-    </div>
-                        
 
 
     {% block content %}
@@ -46,6 +50,7 @@
         {{now}}
         </h5>
     </footer>
+    
 </body>
 
 </html>

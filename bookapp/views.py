@@ -39,9 +39,71 @@ class NewContact(View):
 class ModifyContact(View):
     def get(self,request):
         return HttpResponse("ModifyContact")
+
 class DeleteContact(View):
-    def get(self,request):
-        return HttpResponse("DeleteContact")
+
+    global id
+    id=None
+    
+
+    def get(self,request,contact_id):
+        
+        id = contact_id
+        
+        
+        
+        print (id)
+        sql = '''select * from Contacts where id={}'''.format(id)
+        username= "root"
+        passwd= "coderslab"
+        hostname= "localhost"
+        db_name= "contactbook"
+        
+        print(sql)
+       
+        cnx = connect(user=username, password=passwd, host=hostname, database=db_name)
+        cursor = cnx.cursor()
+        cursor.execute(sql)
+
+        contact_for_cursor=cursor.fetchone()
+        
+        contact = Contact(
+        
+            contact_for_cursor[0],
+            contact_for_cursor[1],
+            contact_for_cursor[2],
+            contact_for_cursor[3],
+            contact_for_cursor[4]    
+                )
+        
+        
+        cursor.close()
+        cnx.close()
+        
+        ctx={"contact":contact}
+        
+        return render(request, "delete_contact.html",ctx)
+
+    def post(self,request):
+        
+        print(id)
+        #sql = '''select * from Contacts where id={}'''.format(id)
+        '''print(sql)
+        try:
+            cnx = connect(user="root", password="coderslab", host="127.0.0.1", database="contactbook")
+            cursor = cnx.cursor()
+            cursor.execute(sql)
+            cnx.commit()
+        except:
+            raise 
+
+        cursor.close()
+        cnx.close()
+
+        return HttpResponse ("Kontakt skasowany")
+
+'''
+
 
 class ShowContact(View):
     def get(self,request,contact_id):
