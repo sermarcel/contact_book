@@ -3,15 +3,15 @@
 {% block content %}
 
     <form action="" method="POST">
-        {% csrf_token %}
+    {% csrf_token %}
 
         <input type="text" name="contact_name" placeholder="Name"><br>
         <input type="text" name="contact_surname" placeholder="Surname"><br>
         <input type="text" name="contact_mail" placeholder="Mail"><br>
         <input type="text" name="contact_phone_number" placeholder="Phone"><br>
 
-    </form>
         <input type="submit" name="addContact" value="Zapisz">
+    </form>
 
 
 {% endblock %}

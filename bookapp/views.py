@@ -42,18 +42,11 @@ class ModifyContact(View):
 
 class DeleteContact(View):
 
-    global id
-    id=None
     
 
     def get(self,request,contact_id):
         
-        id = contact_id
-        
-        
-        
-        print (id)
-        sql = '''select * from Contacts where id={}'''.format(id)
+        sql = '''select * from Contacts where id={}'''.format(contact_id)
         username= "root"
         passwd= "coderslab"
         hostname= "localhost"
@@ -84,11 +77,11 @@ class DeleteContact(View):
         
         return render(request, "delete_contact.html",ctx)
 
-    def post(self,request):
+    def post(self,request, contact_id):
         
-        print(id)
-        #sql = '''select * from Contacts where id={}'''.format(id)
-        '''print(sql)
+        print(contact_id)
+        sql = '''delete from Contacts where id={}'''.format(contact_id)
+        print(sql)
         try:
             cnx = connect(user="root", password="coderslab", host="127.0.0.1", database="contactbook")
             cursor = cnx.cursor()
@@ -102,7 +95,7 @@ class DeleteContact(View):
 
         return HttpResponse ("Kontakt skasowany")
 
-'''
+
 
 
 class ShowContact(View):
